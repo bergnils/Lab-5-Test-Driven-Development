@@ -35,4 +35,14 @@ public class Game {
 		return frames.size();
 	}
 
+	public int getSumOfGame(){
+		int sumOfGame = 0;
+		
+		for(int i = 0; i < frames.size(); i++){
+			sumOfGame+= frames.get(i).getSum();
+		}
+		
+		return sumOfGame;
+	}
+
 }
