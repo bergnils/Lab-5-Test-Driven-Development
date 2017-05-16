@@ -53,4 +53,34 @@ public class Test {
 		assertEquals(game.getSumOfGame(),70);
 	}
 
+	@org.junit.Test
+	public void frameScoreTest() throws Exception {
+		//Create gameObject
+		Game game = new Game();
+		
+		game.bowlingThrow(8);
+		game.bowlingThrow(0);
+		game.bowlingThrow(1);
+		game.bowlingThrow(5);
+		
+		int firstFrame = game.getSumOfSpecificFrame(0);
+		int secondFrame = game.getSumOfSpecificFrame(1);
+		
+		assertEquals(firstFrame, 8);
+		assertEquals(secondFrame, 6);
+	}
+	
+	@org.junit.Test
+	public void gameTest() throws Exception {
+		//Create gameObject
+		Game game = new Game();
+		
+		//throw 20 bowling balls
+		for(int i = 0; i < 20; i++) {
+			game.bowlingThrow((int)Math.random()*10);
+		}
+		
+		//does the game consist of 10 frames?
+		assertEquals(game.getNrOfFrames(), 10);	
+	}
 }
