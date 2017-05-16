@@ -30,5 +30,9 @@ public class Game {
 	public int getSumOfSpecificFrame(int index){
 		return frames.get(index).getSum();
 	}
+	
+	public int getNrOfFrames(){
+		return frames.size();
+	}
 
 }
