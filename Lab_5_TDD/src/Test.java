@@ -19,4 +19,20 @@ public class Test {
 		assertEquals(frame, 9);
 	}
 
+	@org.junit.Test
+	public void frameScoreTest() throws Exception {
+		//Create gameObject
+		Game game = new Game();
+		
+		game.bowlingThrow(8);
+		game.bowlingThrow(0);
+		game.bowlingThrow(1);
+		game.bowlingThrow(5);
+		
+		int firstFrame = game.getSumOfSpecificFrame(0);
+		int secondFrame = game.getSumOfSpecificFrame(1);
+		
+		assertEquals(firstFrame, 8);
+		assertEquals(secondFrame, 6);
+	}
 }
