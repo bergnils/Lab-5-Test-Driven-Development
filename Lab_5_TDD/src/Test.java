@@ -48,6 +48,6 @@ public class Test {
 		}
 		
 		//does the game consist of 10 frames?
-		asserEquals(getNrOfFrames(), 10);	
+		asserEquals(game.getNrOfFrames(), 10);	
 	}
 }
