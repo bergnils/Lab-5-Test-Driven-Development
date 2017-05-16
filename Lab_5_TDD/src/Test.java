@@ -52,5 +52,22 @@ public class Test {
 		
 		assertEquals(game.getSumOfGame(),70);
 	}
+	
+	@org.junit.Test
+	public void testStrike(){
+		Game game = new Game();
+		game.bowlingThrow(10);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		
+		assertEquals(80,game.getSumOfGame());
+	}
 
 }
