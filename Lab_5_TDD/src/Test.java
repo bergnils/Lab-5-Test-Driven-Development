@@ -1,3 +1,4 @@
+
 import static org.junit.Assert.*;
 
 public class Test {
@@ -12,10 +13,10 @@ public class Test {
 		game.bowlingThrow(5);
 		
 		//total value of the specific frame
-		int frame = game.getSpecificFrame(0);
+		int frame = game.getSumOfSpecificFrame(0);
 		
 		//A single frame is not allowed to be greater or less than 10
-		assertTrue(0 >= frame && frame <= 10);
+		assertTrue(0 <= frame && frame <= 10);
 		assertEquals(frame, 9);
 	}
 
