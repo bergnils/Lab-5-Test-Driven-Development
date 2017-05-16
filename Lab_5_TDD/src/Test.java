@@ -19,5 +19,22 @@ public class Test {
 		assertTrue(0 <= frame && frame <= 10);
 		assertEquals(frame, 9);
 	}
+	
+	@org.junit.Test
+	public void testScoreOfGame(){
+		Game game = new Game();
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		game.bowlingThrow(1); game.bowlingThrow(6);
+		
+		assertEquals(game.getSumOfGame(),70);
+	}
 
 }
