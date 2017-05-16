@@ -31,4 +31,14 @@ public class Game {
 		return frames.get(index).getSum();
 	}
 
+	public int getSumOfGame(){
+		int sumOfGame = 0;
+		
+		for(int i = 0; i < frames.size(); i++){
+			sumOfGame+= frames.get(i).getSum();
+		}
+		
+		return sumOfGame;
+	}
+
 }
