@@ -102,6 +102,23 @@ public class Test {
 	}
 	
 	@org.junit.Test
+	public void testTwoSparesInARow(){
+		Game game = new Game();
+		game.bowlingThrow(8); game.bowlingThrow(2);
+		game.bowlingThrow(5); game.bowlingThrow(5);
+		game.bowlingThrow(7); game.bowlingThrow(2);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(4); game.bowlingThrow(4);
+		game.bowlingThrow(5); game.bowlingThrow(3);
+		game.bowlingThrow(3); game.bowlingThrow(3);
+		game.bowlingThrow(4); game.bowlingThrow(5);
+		game.bowlingThrow(8); game.bowlingThrow(1);
+		game.bowlingThrow(2); game.bowlingThrow(6);
+		
+		assertEquals(98,game.getSumOfGame());
+	}
+	
+	@org.junit.Test
 	public void spareTest(){
 		Game game = new Game();
 		game.bowlingThrow(1); game.bowlingThrow(9);
