@@ -7,6 +7,7 @@ public class Game {
 	private int score;
 	boolean previousWasStrike;
 	boolean doubleStrike;
+	boolean previousWasSpare;
 
 	Game(){
 		frames = new Vector<Frame>();
@@ -18,6 +19,7 @@ public class Game {
 		score = 0;
 		previousWasStrike = false;
 		doubleStrike = false;
+		previousWasSpare = false;
 	}
 
 	public void bowlingThrow(int score){
@@ -32,6 +34,10 @@ public class Game {
 				previousWasStrike = true;
 				currentFrame++;
 			} else{
+				if(previousWasSpare){
+					this.score += score;
+					previousWasSpare = false;
+				}
 				frames.get(currentFrame).setFirstThrow(score);
 				this.score += score;
 
@@ -50,6 +56,10 @@ public class Game {
 			if(previousWasStrike){
 				this.score += frames.get(currentFrame).getSum();
 				previousWasStrike = false;
+			}
+			
+			if(frames.get(currentFrame).getSum() == 10){
+				previousWasSpare = true;
 			}
 			currentFrame++;
 		}
