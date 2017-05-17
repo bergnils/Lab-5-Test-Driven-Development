@@ -87,22 +87,21 @@ public class Test {
 		assertEquals(112,game.getSumOfGame());
 	}
 	
-
 	@org.junit.Test
-	public void frameScoreTest() throws Exception {
-		//Create gameObject
+	public void spareTest(){
 		Game game = new Game();
+		game.bowlingThrow(1); game.bowlingThrow(9);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(7); game.bowlingThrow(2);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(4); game.bowlingThrow(4);
+		game.bowlingThrow(5); game.bowlingThrow(3);
+		game.bowlingThrow(3); game.bowlingThrow(3);
+		game.bowlingThrow(4); game.bowlingThrow(5);
+		game.bowlingThrow(8); game.bowlingThrow(1);
+		game.bowlingThrow(2); game.bowlingThrow(6);
 		
-		game.bowlingThrow(8);
-		game.bowlingThrow(0);
-		game.bowlingThrow(1);
-		game.bowlingThrow(5);
-		
-		int firstFrame = game.getSumOfSpecificFrame(0);
-		int secondFrame = game.getSumOfSpecificFrame(1);
-		
-		assertEquals(firstFrame, 8);
-		assertEquals(secondFrame, 6);
+		assertEquals(88,game.getSumOfGame());
 	}
 	
 	@org.junit.Test
