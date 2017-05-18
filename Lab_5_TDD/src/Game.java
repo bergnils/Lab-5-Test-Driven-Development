@@ -9,6 +9,7 @@ public class Game {
 	private boolean doubleStrike;
 	private boolean previousWasSpare;
 	private boolean bonusThrowAllowed;
+	final int FINAL_FRAME = 9;
 
 	Game(){
 		frames = new Vector<Frame>();
@@ -64,7 +65,7 @@ public class Game {
 				previousWasSpare = true;
 			}
 			
-			if(previousWasSpare && this.currentFrame == 9){
+			if(previousWasSpare && this.currentFrame == FINAL_FRAME){
 				bonusThrowAllowed = true;
 			}
 			currentFrame++;
