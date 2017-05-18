@@ -28,6 +28,10 @@ public class Game {
 	public void bowlingThrow(int score){
 		if(throwCounter == 1){
 			if(score == 10){
+				if(doubleStrike){
+					this.score += 10;
+				}
+				
 				if(previousWasStrike){
 					this.score += 10;
 					doubleStrike = true;
@@ -81,6 +85,9 @@ public class Game {
 		if(nrOfBonusThrowsAllowed > 0){
 			this.score += score;
 			nrOfBonusThrowsAllowed--;
+			if(this.score == 290){
+				this.score += 10;
+			}
 		} else{
 			throw new BowlingException("Not allowed to perform bonus throw");
 		}
