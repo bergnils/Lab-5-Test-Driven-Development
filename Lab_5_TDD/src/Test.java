@@ -248,6 +248,31 @@ public class Test {
 	}
 	
 	@org.junit.Test
+	public void testRealGame(){
+		Game game = new Game();
+		game.bowlingThrow(6); game.bowlingThrow(3);
+		game.bowlingThrow(7); game.bowlingThrow(1);
+		game.bowlingThrow(8); game.bowlingThrow(2);
+		game.bowlingThrow(7); game.bowlingThrow(2);
+		game.bowlingThrow(10);
+		game.bowlingThrow(6); game.bowlingThrow(2);
+		game.bowlingThrow(7); game.bowlingThrow(3);
+		game.bowlingThrow(10);
+		game.bowlingThrow(8); game.bowlingThrow(0);
+		game.bowlingThrow(7); game.bowlingThrow(3);
+		try {
+			game.bonusThrow(10);
+			//attempt to throw more bonuses than allowed
+			game.bonusThrow(10);
+			game.bonusThrow(5); 
+			game.bonusThrow(3);
+		} catch (BowlingException e) {
+			
+		}
+		assertEquals(135,game.getSumOfGame());
+	}
+	
+	@org.junit.Test
 	public void attemptIllegalBonusThrow(){
 		Game game = new Game();
 		game.bowlingThrow(1); game.bowlingThrow(5);
