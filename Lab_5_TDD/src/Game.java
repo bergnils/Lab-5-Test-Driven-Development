@@ -32,6 +32,11 @@ public class Game {
 					this.score += 10;
 					doubleStrike = true;
 				}
+
+				if(this.currentFrame == FINAL_FRAME){
+					nrOfBonusThrowsAllowed += 2;
+				}
+				
 				frames.get(currentFrame).setFirstThrow(score);
 				this.score += score;
 				previousWasStrike = true;
@@ -55,23 +60,23 @@ public class Game {
 
 			throwCounter = 1;
 			this.score += score;
-			
+
 			if(previousWasStrike){
 				this.score += frames.get(currentFrame).getSum();
 				previousWasStrike = false;
 			}
-			
+
 			if(frames.get(currentFrame).getSum() == 10){
 				previousWasSpare = true;
 			}
-			
+
 			if(previousWasSpare && this.currentFrame == FINAL_FRAME){
 				nrOfBonusThrowsAllowed++;
 			}
 			currentFrame++;
 		}
 	}
-	
+
 	public void bonusThrow(int score) throws BowlingException{
 		if(nrOfBonusThrowsAllowed > 0){
 			this.score += score;
@@ -84,7 +89,7 @@ public class Game {
 	public int getSumOfSpecificFrame(int index){
 		return frames.get(index).getSum();
 	}
-	
+
 	public int getNrOfFrames(){
 		return frames.size();
 	}

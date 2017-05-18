@@ -102,6 +102,29 @@ public class Test {
 	}
 	
 	@org.junit.Test
+	public void testStrikeAsLastFrame(){
+		Game game = new Game();
+		
+		game.bowlingThrow(1); game.bowlingThrow(5);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(7); game.bowlingThrow(2);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(4); game.bowlingThrow(4);
+		game.bowlingThrow(5); game.bowlingThrow(3);
+		game.bowlingThrow(3); game.bowlingThrow(3);
+		game.bowlingThrow(4); game.bowlingThrow(5);
+		game.bowlingThrow(8); game.bowlingThrow(1);
+		game.bowlingThrow(10);
+		try {
+			game.bonusThrow(7); game.bonusThrow(2);
+		} catch (BowlingException e) {
+			
+		}
+		
+		assertEquals(92,game.getSumOfGame());
+	}
+	
+	@org.junit.Test
 	public void testTwoSparesInARow(){
 		Game game = new Game();
 		game.bowlingThrow(8); game.bowlingThrow(2);
