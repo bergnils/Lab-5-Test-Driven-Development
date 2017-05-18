@@ -5,10 +5,10 @@ public class Game {
 	private int currentFrame;
 	private int throwCounter;
 	private int score;
+	private int nrOfBonusThrowsAllowed;
 	private boolean previousWasStrike;
 	private boolean doubleStrike;
 	private boolean previousWasSpare;
-	private boolean bonusThrowAllowed;
 	final int FINAL_FRAME = 9;
 
 	Game(){
@@ -19,10 +19,10 @@ public class Game {
 		currentFrame = 0;
 		throwCounter = 1;
 		score = 0;
+		nrOfBonusThrowsAllowed = 0;
 		previousWasStrike = false;
 		doubleStrike = false;
 		previousWasSpare = false;
-		bonusThrowAllowed = false;
 	}
 
 	public void bowlingThrow(int score){
@@ -57,9 +57,6 @@ public class Game {
 			this.score += score;
 			
 			if(previousWasStrike){
-				if(this.currentFrame == FINAL_FRAME){
-					bonusThrowAllowed = true;
-				}
 				this.score += frames.get(currentFrame).getSum();
 				previousWasStrike = false;
 			}
@@ -69,16 +66,16 @@ public class Game {
 			}
 			
 			if(previousWasSpare && this.currentFrame == FINAL_FRAME){
-				bonusThrowAllowed = true;
+				nrOfBonusThrowsAllowed++;
 			}
 			currentFrame++;
 		}
 	}
 	
 	public void bonusThrow(int score) throws BowlingException{
-		if(bonusThrowAllowed){
+		if(nrOfBonusThrowsAllowed > 0){
 			this.score += score;
-			bonusThrowAllowed = false;
+			nrOfBonusThrowsAllowed--;
 		} else{
 			throw new BowlingException("Not allowed to perform bonus throw");
 		}
