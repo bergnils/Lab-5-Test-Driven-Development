@@ -57,6 +57,9 @@ public class Game {
 			this.score += score;
 			
 			if(previousWasStrike){
+				if(this.currentFrame == FINAL_FRAME){
+					bonusThrowAllowed = true;
+				}
 				this.score += frames.get(currentFrame).getSum();
 				previousWasStrike = false;
 			}
@@ -75,6 +78,7 @@ public class Game {
 	public void bonusThrow(int score) throws BowlingException{
 		if(bonusThrowAllowed){
 			this.score += score;
+			bonusThrowAllowed = false;
 		} else{
 			throw new BowlingException("Not allowed to perform bonus throw");
 		}
