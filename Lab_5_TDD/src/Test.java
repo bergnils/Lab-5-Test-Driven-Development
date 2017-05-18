@@ -258,7 +258,7 @@ public class Test {
 		game.bowlingThrow(6); game.bowlingThrow(2);
 		game.bowlingThrow(7); game.bowlingThrow(3);
 		game.bowlingThrow(10);
-		game.bowlingThrow(8); game.bowlingThrow(0);
+		game.bowlingThrow(8); game.bowlingThrow(0); //FELET!
 		game.bowlingThrow(7); game.bowlingThrow(3);
 		try {
 			game.bonusThrow(10);
