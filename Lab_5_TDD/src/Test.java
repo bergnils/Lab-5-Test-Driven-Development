@@ -198,6 +198,30 @@ public class Test {
 	}
 	
 	@org.junit.Test
+	public void testBonusThrowIsAStrike(){
+		Game game = new Game();
+		game.bowlingThrow(1); game.bowlingThrow(5);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(7); game.bowlingThrow(2);
+		game.bowlingThrow(3); game.bowlingThrow(6);
+		game.bowlingThrow(4); game.bowlingThrow(4);
+		game.bowlingThrow(5); game.bowlingThrow(3);
+		game.bowlingThrow(3); game.bowlingThrow(3);
+		game.bowlingThrow(4); game.bowlingThrow(5);
+		game.bowlingThrow(8); game.bowlingThrow(1);
+		game.bowlingThrow(2); game.bowlingThrow(8);
+		try {
+			game.bonusThrow(10);
+			//attempt to throw twice more
+			game.bonusThrow(5); game.bonusThrow(3);
+		} catch (BowlingException e) {
+			
+		}
+		
+		assertEquals(93,game.getSumOfGame());
+	}
+	
+	@org.junit.Test
 	public void attemptIllegalBonusThrow(){
 		Game game = new Game();
 		game.bowlingThrow(1); game.bowlingThrow(5);
