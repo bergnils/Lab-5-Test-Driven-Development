@@ -32,6 +32,11 @@ public class Game {
 					this.score += 10;
 				}
 				
+				if(previousWasSpare){
+					this.score += score;
+					previousWasSpare = false;
+				}
+				
 				if(previousWasStrike){
 					this.score += 10;
 					doubleStrike = true;
